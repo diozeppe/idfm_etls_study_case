@@ -1,0 +1,31 @@
+CREATE TABLE IF NOT EXISTS lines (
+    id                        TEXT,
+    name                      TEXT,
+    short_name                TEXT,
+    transport_mode            TEXT,
+    transport_submode         TEXT,
+    type                      TEXT,
+    operator_ref              TEXT,
+    operator_name             TEXT,
+    additional_operators_ref  TEXT,
+    network_name              TEXT,
+    colour_web_hexa           TEXT,
+    text_colour_web_hexa      TEXT,
+    colour_print_cmjn         TEXT,
+    text_colour_print_hexa    TEXT,
+    accessibility             TEXT,
+    audible_signs_available   TEXT,
+    visual_signs_available    TEXT,
+    group_of_lines_id         TEXT,
+    short_group_name          TEXT,
+    notice_title              TEXT,
+    notice_text               TEXT,
+    picto                     TEXT,
+    valid_from_date           DATE,
+    valid_to_date             DATE,
+    status                    TEXT,
+    private_code              TEXT,
+    air_conditioning          TEXT
+);
+
+CREATE INDEX IF NOT EXISTS idx_lines_id_btree ON lines (id);

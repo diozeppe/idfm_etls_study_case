@@ -1,0 +1,50 @@
+dags:
+  - name: stops
+    url: "https://data.iledefrance-mobilites.fr/api/explore/v2.1/catalog/datasets/arrets/exports/json"
+    table_name: stops
+    primary_key: id
+    transform_fn: utils.transformations.stops
+    schema_file: /opt/airflow/dags/ddl/schema/datasets/stops.sql
+    schedule: "@once"
+    type: "dataset"
+    access: "public"
+
+  - name: lines
+    url: "https://data.iledefrance-mobilites.fr/api/explore/v2.1/catalog/datasets/referentiel-des-lignes/exports/json"
+    table_name: lines
+    primary_key: id
+    transform_fn: utils.transformations.lines
+    schema_file: /opt/airflow/dags/ddl/schema/datasets/lines.sql
+    schedule: "@once"
+    type: "dataset"
+    access: "public"
+
+  - name: operators
+    url: "https://data.iledefrance-mobilites.fr/api/explore/v2.1/catalog/datasets/liste-transporteurs/exports/json"
+    table_name: operators
+    primary_key: id
+    transform_fn: utils.transformations.operators
+    schema_file: /opt/airflow/dags/ddl/schema/datasets/operators.sql
+    schedule: "@once"
+    type: "dataset"
+    access: "public"
+
+  - name: line_stops
+    url: "https://data.iledefrance-mobilites.fr/api/explore/v2.1/catalog/datasets/arrets-lignes/exports/json"
+    table_name: line_stops
+    primary_key: id
+    transform_fn: utils.transformations.line_stops
+    schema_file: /opt/airflow/dags/ddl/schema/datasets/line_stops.sql
+    schedule: "@once"
+    type: "dataset"
+    access: "public"
+
+  - name: disruptions
+    url: "https://prim.iledefrance-mobilites.fr/marketplace/disruptions_bulk/disruptions/v2"
+    table_name: disruptions
+    primary_key: id
+    transform_fn: utils.transformations.disruptions
+    schema_file: /opt/airflow/dags/ddl/schema/datasets/disruptions.sql
+    schedule: "*/10 * * * *"
+    type: "api"
+    access: "apiKey"
