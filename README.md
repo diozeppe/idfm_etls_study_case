@@ -10,7 +10,7 @@ The objective is to store disruption information over time and create data wareh
 - Docker
 - [Apache Airflow (3.0.6)](https://hub.docker.com/r/apache/airflow)
 - Python (3.12)
-- [Pandas](https://pandas.pydata.org) and [GeoPandas](https://geopandas.org/en/stable/)
+- [Pandas](https://pandas.pydata.org) and [GeoPandas](https://geopandas.org/en/stable/) (It'll be moved to PySpark in the future)
 - PostgreSQL with PostGIS extension
 
 ---
@@ -88,6 +88,7 @@ Now everything is set to run all the ETL DAGs available.
 
 ## Future features
 
+- Remove Pandas to a more scalable PySpark implementation
 - The YAML config file for the DAGs will be expanded upon, similar to the [Astronomer.io](https://github.com/astronomer/dag-factory) DAG factory and this [AWS blog](https://aws.amazon.com/blogs/big-data/dynamic-dag-generation-with-yaml-and-dag-factory-in-amazon-mwaa/) post.
 - Create Data Warehouses and data quality checks.
 - Set up the workflow and storage at a cloud service.
